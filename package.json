@@ -1,0 +1,37 @@
+{
+  "name": "linqql",
+  "version": "1.0.0",
+  "main": "dist/cjs/linqql.js",
+  "module": "dist/es/linqql.js",
+  "types": "dist/ts/index.d.ts",
+  "repository": "git@github.com:jackmellis/linqQL.git",
+  "author": "Jack Ellis <jack.m.ellis@hotmail.co.uk>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --fix -c .eslintrc.js --ext ts,tsx src && tsc --noEmit",
+    "test": "jest --config ./jest.config.js --passWithNoTests",
+    "debug": "node --inspect-brk ./node_modules/.bin/jest --config ./jest.config.js --passWithNoTests",
+    "build": "rm -rf dist && rollup -c && tsc -d --outDir dist/ts --emitDeclarationOnly",
+    "ci": "yarn && yarn lint && yarn test && yarn build",
+    "prepublishOnly": "yarn build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@testing-library/react": "^15.0.7",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^18.15.1",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "isomorphic-fetch": "^3.0.0",
+    "jest": "^27.5.1",
+    "rollup": "^2.70.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "typescript": "5.2.2"
+  }
+}
